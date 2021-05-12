@@ -59,4 +59,4 @@ console.log(newArray)
 const menorNumero = arrayOriginal[1]
 const maiorNumero = arrayOriginal[arrayOriginal.length-1]
 
-console.log(`O maior numero é ${maiorNumero} e o menor é ${menorNumero}`)
+console.log(` O maior numero é ${maiorNumero} e o menor é ${menorNumero}`)
