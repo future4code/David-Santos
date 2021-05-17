@@ -9,14 +9,14 @@ function inverteArray(array) {
 
 function retornaNumerosParesElevadosADois (array) {
    // implemente sua lógica aqui
-   
+}
 
 //Exercício 3
 
 function retornaNumerosPares (array) {
    // implemente sua lógica aqui
+   
 }
-
 //Exercício 4
 
 function retornaMaiorNumero(array) {
@@ -24,7 +24,8 @@ function retornaMaiorNumero(array) {
    let maiorNumero = -Infinity
    for(let i = 0; i < array.length; i++){
       if(array[i] > maiorNumero){
-         maiorNumero = array[i]      }
+         maiorNumero = array[i] 
+      }
    }return maiorNumero
 }
 
@@ -32,6 +33,8 @@ function retornaMaiorNumero(array) {
 
 function retornaQuantidadeElementos (array) {
    // implemente sua lógica aqui
+   let quantidade = array.length
+   return quantidade
 }
 
 //Exercício 6
