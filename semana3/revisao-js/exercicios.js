@@ -110,11 +110,11 @@ function ordenaArray(array) {
 function filmeFavorito() {
    // implemente sua lógica aqui
 let filme = {
-nome: "O Diabo Veste Prada",
-ano: 2006,
-diretor: "David Frankel",
-atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
-}
+   nome: "O Diabo Veste Prada",
+   ano: 2006,
+   diretor: "David Frankel",
+   atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+   }
 return filme
 }
 
@@ -123,6 +123,15 @@ return filme
 
 function imprimeChamada() {
    // implemente sua lógica aqui
+   let filmeAstro = {
+      nome: "O Diabo Veste Prada",
+      ano: 2006,
+      diretor: "David Frankel",
+      atores: ["Meryl Streep", "Anne Hathaway", "Emily Blunt", "Stanley Tucci"]
+      }
+      return `Venha assistir ao filme ${filmeAstro.nome}, de ${filmeAstro.ano}, dirigido por ${filmeAstro.diretor} e estrelado por ${filmeAstro.atores[0]}, ${filmeAstro.atores[1]}, ${filmeAstro.atores[2]}, ${filmeAstro.atores[3]}.`
+      
+
 }
 
 // Exercício 14
