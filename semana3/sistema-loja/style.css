@@ -1,0 +1,22 @@
+
+.topo {
+    background-color: #33FF3F;  
+    margin: -10px -10px 0px -10px;
+    padding: 20px;  
+}
+
+.menu{
+    background-color: #ffcf54;
+    border: 2px solid rgb(248, 245, 245);
+    margin: 0px -10px 0px -10px;
+    text-align: center;  
+}
+.rodape {
+    background-color: rgb(58, 59, 58);
+    margin: 330px -10px 0px -10px;
+    padding: 10px;
+    text-align: center;
+}
+img{
+ width: 40px;   
+}
