@@ -1,0 +1,76 @@
+*{margin: 0;
+  padding: 0;}
+
+.menuNomes{
+    width: 100%;
+	height: 50px;
+	position: fixed;
+	display: flex;
+    background-color: blue;
+}
+
+.menuNomes label{
+    padding: 10px 0;
+	flex-grow: 1;
+	cursor: pointer;
+	transition: all .4s;
+	text-align: center;
+	font-family: 'Arial';
+	font-size: 100%;
+	color: black;
+}
+
+.menuNomes label:hover{
+    background-color: #363d38;
+}
+
+.menuBotoes{
+    display: flex;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+}
+
+input{
+    display: none;
+}
+
+.sobre{
+    width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+.contato{
+    width: 100vw;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+}
+
+#sobreID{
+    background-color: #7fbd42;
+}
+
+#contatoID{
+    background-color: pink;
+}
+
+.secoes{ transition: all .3s;}
+
+/* sobre */
+
+.texto{
+	width: 50vw;
+	height: 50vh;
+	justify-content: center;
+	align-items: center;
+	display: flex;
+} 
+
+#textoID{
+	background-color: brown;
+}
