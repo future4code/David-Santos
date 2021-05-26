@@ -1,0 +1,107 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container{
+    background-color: white;
+    height: 100vh;
+    width: 100vw;
+}
+
+nav{
+    width: 100vw;
+    height: 6%;
+    background-color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.pesquisa{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.pesquisa img{
+    width: 30px;
+    height: 30px;
+}
+
+main{
+    width: 100%;
+    height: 88%;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: center;
+    align-items: center;
+    padding-left: 70px;
+}
+
+footer{
+    background-color: purple;
+    width: 100vw;
+    height: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.videos img{
+    width: 100%;
+    height: 30vh;
+}
+
+.videos{
+    background-color: white;
+    width: 230px;
+    height: 260px;
+    border: 2px solid black;
+}
+
+/* responsividade iphone 6/7/8 */
+@media screen and (min-device-width : 320px) and (max-device-width : 480px)  {
+    .container{
+        width: 100vw;
+        height: 350vh;
+        max-height: 400vh;
+    }
+
+    nav{
+        width: 100vw;
+        height: 10vh; 
+    }
+
+    footer{
+        width: 100vw;
+        height: 10vh; 
+    }
+
+    main{
+        grid-template-columns: 1fr;
+        width: 100vw;
+        height: 350vh;
+        max-height: 380;
+    }
+
+    
+.videos{
+    background-color: white;
+    max-width: 240px;
+    max-height: 300px;
+    min-width: 200px;
+    min-height: 260px;
+
+    border: 2px solid black;
+}
+
+
+}
+    
+    
+    
+    
