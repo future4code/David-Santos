@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+.container{
+    height: 100vh;
+    width: 100vw;
+}
+
+nav{
+    width: 100%;
+    height: 6%;
+    background-color:orange;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 10px;
+}
+
+.pesquisa{
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+.pesquisa img{
+    width: 30px;
+    height: 30px;
+}
+
+main{
+    width: 100%;
+    height: 88%;
+
+}
+
+footer{
+    background-color: purple;
+    width: 100vw;
+    height: 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+video{
+    width: 800px;
+    height: 400px;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    video{
+        width: 340px;
+        height: 170px;
+    }
+    .container{
+        height: 100vh;
+        width: 100vw;
+    }
+}
