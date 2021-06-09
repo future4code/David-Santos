@@ -35,11 +35,15 @@ class App extends React.Component {
     }
 
   componentDidUpdate() {
-
+    localStorage.setItem('tarefas', JSON.stringify(this.state.tarefas))
   };
 
   componentDidMount() {
-
+    const taferasCriadas = localStorage.getItem('tarefas') 
+    const todasTarefas = JSON.parse(taferasCriadas)
+    if(todasTarefas) {
+      this.setState({mensagens: todasTarefas})
+    }
   };
 
   //input controlado
@@ -60,17 +64,21 @@ class App extends React.Component {
   }
 
   selectTarefa = (id) => {
-    const alteraTarefa = this.state.tarefas.map((sla) =>{
-      if(id === sla.id){
+    const alteraTarefa = this.state.tarefas.map((tarefa) =>{
+      if(id === tarefa.id){
         const mudaEstado = {
-          ...sla,
-          curtida: !sla.completa
+          ...tarefa,
+          completa: !tarefa.completa
         }
+        return mudaEstado
+      } else {
+        return Tarefa
       }
     })
   }
 
   onChangeFilter = (event) => {
+    this.setState({ filtro: event.target.value });
 
   }
 
