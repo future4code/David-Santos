@@ -1,0 +1,16 @@
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.App {
+  text-align: center;
+}
+
+/* --------tamanho da pagina-------- */
+html,
+body {
+  max-height: 250%;
+  background-color: aqua;
+}
