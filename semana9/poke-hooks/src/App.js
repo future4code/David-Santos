@@ -35,7 +35,7 @@ function App() {
             );
           })}
         </select>
-        {pokeName && <PokeCard pokemon={pokeName} />}
+        {pokeName && <PokeCard pokeName={pokeName} />}
     </div>
   );
 }
