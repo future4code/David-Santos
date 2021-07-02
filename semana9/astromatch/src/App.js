@@ -4,33 +4,32 @@ import TelaInicial from './components/TelaInicial/TelaInicial';
 import TelaMatches from './components/TelaMatches/TelaMatches';
 
 function App() {
-  const [tela, setTela] = useState("TelaInicial");
-
-  const irParaTelaInicial = () => {
-    setTela("TelaInicial")
+  const [tela, setTela] = useState("Tela Inicial");
+  
+  const irParaATelaInicial = () => {
+    setTela("Tela Inicial");
   };
 
-  const irParaTelaMatches = () => {
-    setTela("TelaMatches")
+  const irParaATelaMatches = () => {
+    setTela("Tela Matches");
   };
 
-  const renderizaTela = () => {
-    switch (tela) {
-      case "TelaInicial":
-        return <TelaInicial />;
-      case "TelaMatches":
-        return <TelaMatches />;
+  const renderizaPagina = () => {
+    switch(tela){
+      case "Tela Inicial":
+        return <TelaInicial/>;
+      case "Tela Matches":
+        return <TelaMatches/>;
       default:
-        return <p>Ué?</p>;
+        <p>Alguma coisa deu errado!</p>;
     }
-  };
+  }
 
   return (
     <div className="App">
-        <button onclick={irParaTelaInicial}>Tela inicial</button>
-        <button onclick={irParaTelaMatches}>Tela matches</button>
-
-        {renderizaTela()}
+      <button onClick={irParaATelaInicial}>Inicio</button>
+      <button onClick={irParaATelaMatches}>Matches</button>
+      {renderizaPagina()}
     </div>
         
   );
