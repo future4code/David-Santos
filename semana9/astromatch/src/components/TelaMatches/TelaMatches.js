@@ -1,30 +1,50 @@
 import './styles.js';
 import React, {useState, useEffect} from 'react';
 import axios from "axios"
+import styled from "styled-components";
+
+
+const Matches = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  div{
+    width: 300px;
+    border: 2px solid black;
+    display: flex;
+    align-itens: center;
+    justify-content: space-between
+  }
+`;
 
 function TelaMatches() {
   
-  const [todosMatches, settodosMatches] = useState({});
-  
+  const [todosMatches, setTodosMatches] = useState([]);
+
   useEffect(() => {
     axios
       .get(`https://us-central1-missao-newton.cloudfunctions.net/astroMatch/david-ortiz-molina/matches`)
       .then((res) => {
-       settodosMatches(res.data.matches);
+       setTodosMatches(res.data.matches);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const renderizatodosMatches = todosMatches.map((match) =>
-  <li>{match.id}</li>
-);
 
   return (
-    <div className="App">
-      {renderizatodosMatches}
-    </div>
+    <Matches>{todosMatches.map((e)=>{
+      return <div key={e.id}><img src={e.photo}/><p>{e.name}</p></div>
+    })}</Matches>
   );
 }
 
