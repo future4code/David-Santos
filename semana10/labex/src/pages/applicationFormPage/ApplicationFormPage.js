@@ -1,55 +1,75 @@
 import React, {useState} from 'react';
-import {Header} from "../styles"
+import { required } from 'yargs';
+import useForm from '../../hooks/useForm';
 
 function ApplicationFormPage() {
-    const [trips, setTrips] = useState([]);
-    const [name, setName] = useState("");
-    const [age, setAge] = useState(1);
-    const [applicationText, setApplicationText] = useState("");
-    const [country, setCountry] = useState ([]);
 
-    const onChangeTrips = (e) => {
-        setTrips(e.target.value)
+    const { form, onChange, cleanFields } = useForm({
+        trips: "",
+        name: "",
+        age: "",
+        applicationText: "",
+        country: "",
+        profession: ""
+      })
+
+    const onSubmitApplication = (event) => {
+        event.preventDefault();
+        console.log("Formulário enviado!", form);
+        cleanFields();
     }
 
-    const onChangeName = (e) => {
-        setName(e.target.value)
-    }
-
-    const onChangeAge = (e) => {
-        setAge(e.target.value)
-    }
-
-    const onChangeApplication = (e) => {
-        setApplicationText(e.target.value)
-    }
-
-    const onChangeCountry = (e) => {
-        setCountry(e.target.value)
-    }
     return (
         <div>
-            <form>
-                <label>
-                    Escolha uma viagem:
-                    <input placeholder="Escolha uma viagem" type="text" value={trips} onChange={onChangeTrips}/>
-                </label>
-                <label>
-                    Nome:
-                    <input placeholder="Nome" type="text" value={name} onChange={onChangeName}/>
-                </label>
-                <label>
-                    Idade:
-                    <input placeholder="Idade" type="text" value={age} onChange={onChangeAge}/>
-                </label>
-                <label>
-                    Texto para candidatura:
-                    <input placeholder="Digite aqui" type="text" value={applicationText} onChange={onChangeApplication}/>
-                </label>
-                <label>
-                    País:
-                    <input placeholder="País" type="text" value={country} onChange={onChangeCountry}/>
-                </label>
+            <form onSubmit={onSubmitApplication}>
+                <input 
+                name="profession" 
+                placeholder="profissão" 
+                type="text" 
+                value={form.profession} 
+                onChange={onChange}
+                pattern={"^.{10,}"}
+                title={"Mínimo de 10 caracteres"}
+                required
+                />
+                <input 
+                name="name" 
+                placeholder="Nome" 
+                type="text" 
+                value={form.name} 
+                onChange={onChange}
+                pattern={"^.{3,}"}
+                title={"Seu nome deve ter no mínimo 3 caracteres"}
+                required
+                />
+                <input 
+                name="age" 
+                placeholder="Idade" 
+                type="number" 
+                value={form.age} 
+                onChange={onChange}
+                min={18}
+                title={"Sua idade não pode ser inferior a 18 anos"}
+                required
+                />
+                <input 
+                name="applicationText" 
+                placeholder="Digite aqui" 
+                type="text" 
+                value={form.applicationText} 
+                onChange={onChange}
+                pattern={"^.{30,}"}
+                title={"Mínimo 30 caracteres"}
+                required
+                />
+                <input 
+                name="country" 
+                placeholder="País" 
+                type="text" 
+                value={form.country} 
+                onChange={onChange}
+                required
+                />
             </form>
         </div>
     )
