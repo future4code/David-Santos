@@ -1,6 +1,20 @@
-import axios from "axios";
 import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import styled from 'styled-components';
+import fundo from "../../img/fundo.jpg";
+import axios from "axios"
+
+const Main = styled.div`
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(${fundo});
+    width: 100vw;
+    height: 100vh;
+`
+
 
 const useProtectedPage = () => {
   const history = useHistory();
@@ -9,16 +23,14 @@ const useProtectedPage = () => {
     const token = localStorage.getItem("token");
 
     if (token === null) {
-      console.log("Não está logado!!!");
+      alert("Não está logado!!!");
       history.push("/login");
     }
   }, []);
 };
 
 function TripDetailsPage() {
-    
-    useProtectedPage();
-
+  
     useEffect(() => {
       const token = localStorage.getItem("token");
       axios
@@ -38,9 +50,9 @@ function TripDetailsPage() {
         });
     }, []);
     return (
-        <div>
-            hi
-        </div>
+        <Main>
+           <h1> Desisto </h1>
+        </Main>
     )
 }
 
