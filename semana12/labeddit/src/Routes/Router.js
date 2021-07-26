@@ -1,29 +1,28 @@
-import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import FeedPage from "../pages/FeedPage/FeedPage";
+import React from 'react'
 import LoginPage from "../pages/LoginPage/LoginPage";
-import PostPage from "../pages/PostPage/PostPage";
 import SignUpPage from "../pages/SingUpPage/SignUpPage";
+import FeedPage from "../pages/FeedPage/FeedPage";
+import PostPage from "../pages/PostPage/PostPage";
+import Header from "../components/Header/Header";
 
-const router = () => {
+const Router = () => {
     return (
         <div>
             <BrowserRouter>
+                <Header/>
                 <Switch>
-                    <Route>
-                        <LoginPage exact path="/"/>
+                    <Route exact path="/">
+                        <LoginPage/>
+                    </Route>
+                    <Route exact path="/cadastro">
+                        <SignUpPage/>
+                    </Route>
+                    <Route exact path="/postagens">
+                        <FeedPage/>
                     </Route>
                     <Route>
-                        <SignUpPage exact path="/cadastro"/>
-                    </Route>
-                    <Route>
-                        <FeedPage exact path="/postagens"/>
-                    </Route>
-                    <Route>
-                        <PostPage exact path="/postagens/:id"/>
-                    </Route>
-                    <Route>
-                        <div>TÁ errado irmão</div>
+                        <PostPage/>
                     </Route>
                 </Switch>
             </BrowserRouter>
@@ -31,4 +30,4 @@ const router = () => {
     )
 }
 
-export default router
+export default Router

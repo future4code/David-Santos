@@ -10,6 +10,6 @@ export const goToFeedPage = (history) => {
     history.push("/postagens")
 }
 
-export const goToPostPage = (history) => {
+export const goToPostPage = (history, id) => {
     history.push(`/postagens/${id}`)
 }
