@@ -1,69 +1,70 @@
-import express, { Request, Response } from 'express'
+import express,{ Express } from "express";
 import cors from 'cors'
+import { account } from "./account";
+import { Account } from "./types";
 
-type User = {
-  id: number,
-  name: string,
-  email: string,
-  type: string,
-  age: number
-}
+const app: Express = express();
 
-// Mock simulando um array de usuários no Banco de Dados
-let users: User[] = [
-  {
-      id: 1,
-      name: "Alice",
-      email: "alice@email.com",
-      type: "ADMIN",
-      age: 12
-  },
-  {
-      id: 2,
-      name: "Bob",
-      email: "bob@email.com",
-      type: "NORMAL",
-      age: 36
-  },
-  {
-      id: 3,
-      name: "Coragem",
-      email: "coragem@email.com",
-      type: "NORMAL",
-      age: 21
-  },
-  {
-      id: 4,
-      name: "Dory",
-      email: "dory@email.com",
-      type: "NORMAL",
-      age: 17
-  },
-  {
-      id: 5,
-      name: "Elsa",
-      email: "elsa@email.com",
-      type: "ADMIN",
-      age: 17
-  },
-  {
-      id: 6,
-      name: "Fred",
-      email: "fred@email.com",
-      type: "ADMIN",
-      age: 60
-  }
-]
+app.use(express.json());
+app.use(cors());
 
-const app = express()
-app.use(express.json())
-app.use(cors())
+import { AddressInfo } from "net";
 
-// Para testar se o servidor está tratando os endpoints corretamente
-app.get("/ping", (req: Request, res: Response) => {
-  res.status(200).send("pong!")
+app.post("/users", (req, res) => {
+    let errorCode:number = 400
+    try{
+        const {id, name, CPF, date} = req.body
+        
+        if(!id || !name || !CPF || !date){
+            errorCode = 422
+            throw new Error("Confira os campos")
+        }
+
+        account.push({
+            name,
+            CPF,
+            date,
+            saldo:0,
+            balance:[]
+        })
+
+        res.status(201).send({message: "Usuario criado"})
+    }catch(error){
+        res.status(errorCode).send({messagem: error.message})
+    }
 })
 
-app.listen(3003, () => {
-  console.log('Server is running at port 3003')
+app.get("users/:CPF", (req, res) => {
+    let errorCode:number = 400
+    let saldocorrente
+
+    const CPF = req.params.CPF 
+    
+    try{
+        const CPF: number = Number(req.params.CPF);
+        if (isNaN(CPF) || !CPF) {
+            throw new Error("Confira o CPF");
+          }
+        account.map((valor)=>{
+            saldocorrente =  valor.saldo
+            return saldocorrente
+        })
+        res.status(200).send({message: `Saldo atual: ${saldocorrente}`})
+    } catch(error){
+        res.status(errorCode).send({messagem: error.message})
+    }
 })
+
+const server = app.listen(process.env.PORT || 3003, () => {
+    if (server) {
+       const address = server.address() as AddressInfo;
+       console.log(`Server is running in http://localhost: ${address.port}`);
+    } else {
+       console.error(`Failure upon starting server.`);
+    }
+});
+
+
+
+
+
