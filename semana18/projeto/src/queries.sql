@@ -1,0 +1,14 @@
+CREATE TABLE `Semana18_User` (
+	id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    age INT NOT NULL
+);
+
+CREATE TABLE `Semana18_Product` (
+	id VARCHAR(255) PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    price FLOAT NOT NULL,
+);
+
